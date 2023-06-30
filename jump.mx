@@ -2,7 +2,7 @@ autocomplete set jump %[{
     DynamicDesc: %({ jump --help -> tabulate --key-value --map })
 }]
 
-event: onPrompt jump=completion {
+event: onPrompt jump=after {
     jump chdir
 }
 
@@ -22,4 +22,4 @@ autocomplete set j %[{
     ListView: true
 }]
 
-${autocomplete get j} ~> ${autocomplete get cd} -> autocomplete set cd
+#${autocomplete get j} ~> ${autocomplete get cd} -> autocomplete set cd
