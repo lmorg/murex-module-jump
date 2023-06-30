@@ -1,0 +1,25 @@
+autocomplete set jump %[{
+    DynamicDesc: %({ jump --help -> tabulate --key-value --map })
+}]
+
+event: onPrompt jump=completion {
+    jump chdir
+}
+
+function j (p:str "path-to location") {
+    if { $p } then {
+        dir = ${ jump cd $p }
+        if { $dir -> f +d } then {
+            cd $dir
+        }
+    }
+}
+
+autocomplete set j %[{
+    IncDirs: true
+    Dynamic: '{ jump cd $PREFIX }'
+    IgnorePrefix: true
+    ListView: true
+}]
+
+${autocomplete get j} ~> ${autocomplete get cd} -> autocomplete set cd

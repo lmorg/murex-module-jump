@@ -1,0 +1,15 @@
+[
+	{
+		"Name": "jump",
+		"Summary": "Typescript tools",
+		"Version": "1.0",
+		"Source": "jump.mx",
+		"Dependencies": {
+			"Optional": [],
+			"Required": [
+				"jump"
+			],
+			"Platform": [ "posix" ]
+		}
+	}
+]
