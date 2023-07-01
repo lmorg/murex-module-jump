@@ -2,11 +2,12 @@ autocomplete set jump %[{
     DynamicDesc: %({ jump --help -> tabulate --key-value --map })
 }]
 
-event: onPrompt jump=after {
+event: onPrompt jump=before {
     jump chdir
 }
 
 function j (p:str "path-to location") {
+    # jump to different directories via `jump` (github.com/gsamokovarov/jump)
     if { $p } then {
         dir = ${ jump cd $p }
         if { $dir -> f +d } then {
@@ -16,10 +17,10 @@ function j (p:str "path-to location") {
 }
 
 autocomplete set j %[{
-    IncDirs: true
-    Dynamic: '{ jump cd $PREFIX }'
+    Dynamic: '{
+        jump hint $PREFIX
+    }'
     IgnorePrefix: true
     ListView: true
+    CacheTTL: -1
 }]
-
-#${autocomplete get j} ~> ${autocomplete get cd} -> autocomplete set cd

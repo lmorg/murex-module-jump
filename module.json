@@ -1,8 +1,8 @@
 [
 	{
 		"Name": "jump",
-		"Summary": "Typescript tools",
-		"Version": "1.0",
+		"Summary": "Completions for jump: github.com/gsamokovarov/jump",
+		"Version": "1.1",
 		"Source": "jump.mx",
 		"Dependencies": {
 			"Optional": [],
